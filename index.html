@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carlos Sánchez | Portafolio</title>
+<meta name="description" content="Portafolio de Carlos Sánchez: soporte tecnológico, redes y Excel.">
+<style>
+:root{
+  color-scheme:dark;
+  --nav:#101010; --ink:#F2F6FF; --muted:#A8B7D6; --cyan:#19B4FF; --peach:#FFC98B;
+  --panel:rgba(18,72,150,.32); --pill:#050A33; --line:rgba(90,170,255,.38);
+  --sans:"Segoe UI","Helvetica Neue",Arial,sans-serif; --serif:Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:var(--serif);font-size:1.075rem;line-height:1.7;
+  background:linear-gradient(135deg,#1C0F40 0%,#0B2A63 50%,#120C36 100%) fixed;
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0 2px,transparent 2px 6px),linear-gradient(135deg,#1C0F40 0%,#0B2A63 50%,#120C36 100%)}
+a{color:var(--cyan)}
+:focus-visible{outline:3px solid var(--peach);outline-offset:3px}
+h1,h2,h3{font-family:var(--sans);line-height:1.1;margin:0;letter-spacing:-.02em}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem;position:relative;z-index:1}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important}}
+
+/* Decoración */
+.deco{position:absolute;pointer-events:none;z-index:0}
+.orb{border-radius:50%;filter:blur(70px);opacity:.55}
+.ringo{border:2px solid rgba(25,180,255,.4);border-radius:50%}
+.dots{background-image:radial-gradient(rgba(25,180,255,.55) 2px,transparent 2px);background-size:20px 20px}
+.float{animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-16px)}}
+section,.hero{position:relative;overflow:hidden}
+
+/* Navegación */
+header.top{background:var(--nav);position:sticky;top:0;z-index:50;border-bottom:1px solid #222}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:.9rem;padding-bottom:.9rem;flex-wrap:wrap}
+.brand{font-family:var(--sans);font-weight:800;font-size:1.4rem;color:#fff;text-decoration:none}
+.brand span{color:var(--cyan)}
+nav ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0;font-family:var(--sans);font-size:.95rem;flex-wrap:wrap}
+nav a{color:#fff;text-decoration:none}
+nav a:hover{color:var(--cyan)}
+
+/* Portada */
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;padding-top:5rem;padding-bottom:5.5rem}
+.hero h1{font-size:clamp(3.2rem,10vw,6.4rem);font-weight:800;line-height:.96}
+.hero h1 span{display:block}
+.hero h1 span+span{color:var(--cyan)}
+.role{font-family:var(--sans);font-size:1.25rem;font-weight:600;margin:1.25rem 0 .75rem;color:var(--peach)}
+.lead{max-width:34rem;color:var(--muted);margin:0 0 1.75rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap;font-family:var(--sans)}
+.btn{display:inline-block;padding:.75rem 1.4rem;border:2px solid var(--cyan);border-radius:999px;font-weight:700;text-decoration:none;color:#fff}
+.btn.solid{background:var(--cyan);color:#04122B}
+.btn:hover{text-decoration:underline}
+.portrait{position:relative;justify-self:center;width:100%;max-width:330px;aspect-ratio:4/5;border:2px solid var(--cyan);background:#10306B;display:grid;place-items:center;font-family:var(--sans);font-weight:800;font-size:4rem;color:var(--muted);box-shadow:14px 14px 0 rgba(25,180,255,.35);overflow:hidden;z-index:1}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rise{animation:rise .7s both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+
+/* Secciones */
+section{padding:5rem 0}
+section:nth-of-type(even){background:rgba(5,10,51,.35)}
+.sec-title{text-align:center;font-size:clamp(2rem,5vw,2.8rem);font-weight:800}
+.line{height:2px;width:min(340px,80%);margin:1rem auto 3rem;background:linear-gradient(90deg,rgba(255,255,255,.35) 0 36%,transparent 36% 42%,var(--cyan) 42% 58%,transparent 58% 64%,rgba(255,255,255,.35) 64% 100%)}
+.panel{background:var(--panel);border:1px solid rgba(90,170,255,.2);border-radius:20px;padding:1.75rem}
+.about{display:grid;grid-template-columns:3fr 2fr;gap:2.5rem;align-items:center}
+.about p{margin:0 0 1rem}
+.facts{list-style:none;margin:0;padding:1.25rem;display:grid;gap:.85rem;font-family:var(--sans);text-align:center;background:linear-gradient(160deg,rgba(25,180,255,.22),rgba(122,60,255,.25));border-radius:26px}
+.facts li{background:rgba(5,10,51,.5);border:1px solid var(--line);border-radius:16px;padding:1rem;transition:transform .2s,border-color .2s}
+.facts li:hover{transform:translateY(-3px);border-color:var(--cyan)}
+.facts b{display:block;color:var(--cyan);font-size:.85rem;margin-bottom:.15rem}
+.facts span{display:block;color:var(--ink);font-size:1.15rem;font-weight:600}
+
+/* Qué hago */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.cards .panel:nth-child(2){transform:translateY(22px)}
+.cards svg{width:48px;height:48px;stroke:var(--cyan);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.8rem}
+.cards h3{font-size:1.35rem;font-weight:700;margin-bottom:.5rem}
+.cards p{margin:0;color:var(--muted)}
+
+/* Currículum con pestañas */
+.tabs{display:flex;justify-content:center;gap:.35rem;flex-wrap:wrap;width:fit-content;max-width:100%;margin:0 auto 2.5rem;padding:.6rem;border:1px solid var(--line);border-radius:999px;background:rgba(18,72,150,.25)}
+.tabs button{font:700 .95rem var(--sans);text-transform:uppercase;color:#fff;background:transparent;border:0;border-radius:999px;padding:1rem 1.6rem;cursor:pointer}
+.tabs button b{color:var(--cyan);margin-left:.7rem}
+.tabs button[aria-selected="true"]{background:var(--pill)}
+.xp{display:grid;grid-template-columns:1fr auto;gap:.5rem 1.5rem;align-items:start}
+.xp h3{font-size:1.5rem}
+.xp .org{font-family:var(--sans);font-weight:700;color:var(--cyan);font-size:1.15rem;margin-top:.3rem}
+.date{font-family:var(--sans);background:var(--pill);color:var(--cyan);border-radius:999px;padding:.6rem 1.6rem;white-space:nowrap}
+.xp ul{grid-column:1/-1;margin:.8rem 0 0;padding-left:1.2rem;color:var(--muted)}
+.xp+.xp{margin-top:1.5rem}
+@keyframes slideOut{to{opacity:0;transform:translateX(var(--dx))}}
+@keyframes slideIn{from{opacity:0;transform:translateX(var(--dx))}}
+.sheet{overflow-x:auto;border-radius:16px;border:1px solid var(--line);background:rgba(5,10,51,.45)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-family:var(--sans);font-size:.95rem;counter-reset:fila}
+th,td{border:1px solid var(--line);padding:.7rem .9rem;text-align:left;vertical-align:top}
+thead th{background:var(--pill);color:var(--cyan)}
+tbody tr{counter-increment:fila}
+tbody th{width:2.75rem;text-align:center;background:rgba(5,10,51,.7);color:var(--muted);font-weight:400}
+tbody th::before{content:counter(fila)}
+tbody tr:first-child td:first-of-type{outline:2px solid var(--cyan);outline-offset:-2px;font-weight:700}
+td{color:var(--muted)} td:first-of-type{color:var(--ink)}
+
+/* Proyectos */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.shot{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#17408A,#3A1B7A);display:grid;place-items:center;text-align:center;padding:1rem;font-family:var(--sans);font-size:.85rem;color:var(--muted);overflow:hidden}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.shot .ov{position:absolute;inset:0;background:rgba(14,130,160,.85);display:grid;place-items:center;font-size:3rem;color:#fff;opacity:0;transition:opacity .25s}
+.card:hover .ov,.card:focus-within .ov{opacity:1}
+.card:hover .shot img{transform:scale(1.06)}
+.card h3{font-size:1.3rem;margin:1rem 0 .4rem}
+.card p{margin:0 0 .5rem;color:var(--muted);font-size:1rem}
+.tags{font-family:var(--sans);font-size:.88rem;color:var(--cyan)!important}
+
+/* Actividades */
+.acts{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.acts li{display:grid;grid-template-columns:230px 1fr;gap:1.5rem;background:var(--panel);border-left:4px solid var(--cyan);border-radius:14px;padding:1.1rem 1.5rem}
+.acts b{font-family:var(--sans)}
+.acts span{color:var(--muted)}
+
+/* Contacto */
+.contact .panel{max-width:700px;margin:0 auto;text-align:center;border-radius:28px;padding:2.5rem 1.75rem;background:linear-gradient(160deg,rgba(25,180,255,.22),rgba(122,60,255,.25))}
+.contact p{margin:0 0 1.75rem;font-size:1.2rem;color:var(--ink)}
+.links{list-style:none;margin:0;padding:0;font-family:var(--sans);display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+.links a{display:block;background:rgba(5,10,51,.55);border:1px solid var(--line);border-radius:16px;padding:.9rem 1.3rem;text-decoration:none;color:#fff;transition:transform .2s,border-color .2s}
+.links a:hover{transform:translateY(-3px);border-color:var(--cyan)}
+.links b{display:block;color:var(--cyan);font-size:.85rem;margin-bottom:.1rem}
+.links span{font-size:.98rem}
+footer{padding:2rem 0;font-family:var(--sans);font-size:.9rem;color:var(--muted);background:var(--nav);text-align:center}
+.up{position:fixed;right:1.5rem;bottom:1.5rem;width:56px;height:56px;border-radius:50%;background:var(--cyan);display:grid;place-items:center;z-index:60;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.up svg{width:26px;height:26px;stroke:#04122B;fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* Cursor interactivo */
+.cursor-ring,.cursor-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:999;opacity:0}
+.cursor-ring{width:40px;height:40px;margin:-20px 0 0 -20px;border:2px solid rgba(140,200,120,.9);border-radius:50%;transition:width .2s,height .2s,margin .2s}
+.cursor-ring.big{width:76px;height:76px;margin:-38px 0 0 -38px}
+.cursor-dot{width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--peach)}
+body.cursor-on .cursor-ring,body.cursor-on .cursor-dot{opacity:1}
+
+@media (max-width:820px){
+  .hero .wrap,.about,.cards,.grid{grid-template-columns:1fr}
+  .hero .wrap{padding-top:3rem;padding-bottom:3.5rem}
+  .portrait{order:-1;max-width:260px;font-size:3rem;box-shadow:8px 8px 0 rgba(25,180,255,.35)}
+  .cards .panel:nth-child(2){transform:none}
+  .acts li{grid-template-columns:1fr;gap:.3rem}
+  .xp{grid-template-columns:1fr}
+  .tabs{border-radius:24px}
+  .tabs button{padding:.8rem 1.1rem}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">Carlos <span>Sánchez</span></a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#que-hago">Qué hago</a></li>
+        <li><a href="#curriculum">Currículum</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#actividades">Actividades</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero" id="inicio">
+    <span class="deco orb" style="width:380px;height:380px;background:#7A3CFF;left:-120px;top:-80px"></span>
+    <span class="deco orb" style="width:340px;height:340px;background:#19B4FF;right:-100px;bottom:-120px"></span>
+    <span class="deco ringo float" style="width:150px;height:150px;left:46%;top:40px"></span>
+    <span class="deco dots" style="width:140px;height:140px;right:8%;top:30px"></span>
+    <div class="wrap">
+      <div>
+        <h1 class="rise"><span>Carlos</span><span>Sánchez</span></h1>
+        <p class="role rise" style="animation-delay:.1s">Futuro ingeniero en tecnología</p>
+        <p class="lead rise" style="animation-delay:.2s">Hice mi pasantía de soporte tecnológico en American Trade Hotel. Uso Excel, HTML y CSS, y quiero ser ingeniero en alguna rama de la tecnología.</p>
+        <div class="btns rise" style="animation-delay:.3s">
+          <a class="btn solid" href="#proyectos">Ver proyectos</a>
+          <a class="btn" href="#contacto">Escribirme</a>
+        </div>
+      </div>
+      <!-- Tu foto: guárdala como img/foto.jpg (vertical, 4:5 se ve mejor) -->
+      <div class="portrait rise" style="animation-delay:.25s">
+        <span aria-hidden="true">CS</span>
+        <img src="img/foto.jpg" alt="Foto de Carlos Sánchez" onerror="this.remove()">
+      </div>
+    </div>
+  </div>
+
+  <section id="sobre-mi">
+    <span class="deco ringo" style="width:220px;height:220px;right:-70px;top:30px"></span>
+    <span class="deco dots" style="width:120px;height:120px;left:2%;bottom:30px"></span>
+    <div class="wrap">
+      <h2 class="sec-title">Sobre mí</h2><div class="line"></div>
+      <div class="about">
+        <div>
+          <p>Vivo en Panamá y me interesa construir soluciones con tecnología y datos. En mi pasantía trabajé con los sistemas que sostienen la operación diaria: las cerraduras de las puertas, los puntos de venta de restaurante, bar y café, y los teléfonos.</p>
+          <p>Lo que más me llevé fue revisar que cada cosa funcione y dejarlo registrado de forma clara, como hice con la hoja de control de señal de las cerraduras.</p>
+          <p>Mi meta es ser un ingeniero capacitado, disciplinado y en constante aprendizaje. Aplico lo que desarrollé en el programa Supérate (valores, inglés e informática) y quiero seguir reinventándome, con metas cada vez más grandes.</p>
+        </div>
+        <ul class="facts panel">
+          <li><b>Ubicación</b><span>Panamá</span></li>
+          <li><b>Inglés</b><span>TOEIC 900 de 990</span></li>
+          <li><b>Excel</b><span>Nivel avanzado y experto</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="que-hago">
+    <span class="deco orb" style="width:300px;height:300px;background:#7A3CFF;left:-100px;top:40%"></span>
+    <div class="wrap">
+      <h2 class="sec-title">Qué hago</h2><div class="line"></div>
+      <div class="cards">
+        <div class="panel">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="21" width="28" height="20" rx="3"/><path d="M16 21v-6a8 8 0 0 1 16 0v6M24 28v6"/></svg>
+          <h3>Soporte de sistemas</h3>
+          <p>Cerraduras inteligentes, puntos de venta (POS) y telefonía del hotel.</p>
+        </div>
+        <div class="panel">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 19a26 26 0 0 1 36 0M12 26a17 17 0 0 1 24 0M18 33a8 8 0 0 1 12 0"/><circle cx="24" cy="40" r="1.5"/></svg>
+          <h3>Redes</h3>
+          <p>Apoyo en la configuración y revisión de Wi-Fi, puntos de acceso y hubs.</p>
+        </div>
+        <div class="panel">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="9" width="34" height="30" rx="3"/><path d="M7 19h34M7 29h34M19 9v30"/></svg>
+          <h3>Excel</h3>
+          <p>Hojas de control y registro, con certificaciones de nivel avanzado y experto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="curriculum">
+    <span class="deco ringo float" style="width:120px;height:120px;left:3%;top:60px"></span>
+    <span class="deco dots" style="width:150px;height:150px;right:3%;bottom:40px"></span>
+    <div class="wrap">
+      <h2 class="sec-title">Mi currículum</h2><div class="line"></div>
+      <div class="tabs" role="tablist" aria-label="Currículum">
+        <button role="tab" id="t1" aria-selected="true" aria-controls="p1">Experiencia<b>01</b></button>
+        <button role="tab" id="t2" aria-selected="false" aria-controls="p2">Habilidades<b>02</b></button>
+        <button role="tab" id="t3" aria-selected="false" aria-controls="p3">Formación<b>03</b></button>
+      </div>
+
+      <div id="p1" role="tabpanel" aria-labelledby="t1">
+        <div class="xp panel">
+          <div><h3>Técnico de soporte tecnológico (pasantía)</h3><div class="org">American Trade Hotel</div></div>
+          <span class="date">Enero de 2026</span>
+          <ul>
+            <li>Asistente de tiempo completo en el departamento de TI.</li>
+            <li>Di soporte técnico y operativo a los sistemas del hotel, las cerraduras inteligentes, los puntos de venta, la telefonía y el Wi-Fi.</li>
+            <li>Apoyé en la configuración y la solución de problemas de red, incluidos puntos de acceso y hubs.</li>
+            <li>Trabajé en equipo dentro de un entorno de hotel con mucho movimiento.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+        <div class="sheet">
+          <table>
+            <thead><tr><th scope="col"></th><th scope="col">Herramienta</th><th scope="col">Nivel o prueba</th><th scope="col">Dónde la he usado</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"></th><td>Excel</td><td>Dos certificaciones: avanzado y experto</td><td>Hoja de control de señal de cerraduras durante mi pasantía.</td></tr>
+              <tr><th scope="row"></th><td>Soporte de sistemas</td><td>Pasantía</td><td>Cerraduras inteligentes, puntos de venta (POS) y telefonía.</td></tr>
+              <tr><th scope="row"></th><td>Redes</td><td>Apoyo en pasantía</td><td>Configuración y revisión de Wi-Fi, puntos de acceso y hubs.</td></tr>
+              <tr><th scope="row"></th><td>Microsoft 365 y Canva</td><td>Uso frecuente</td><td>Documentos, presentaciones y diseño.</td></tr>
+              <tr><th scope="row"></th><td>HTML y CSS</td><td>Conocimientos</td><td>Este portafolio.</td></tr>
+              <tr><th scope="row"></th><td>Inglés</td><td>TOEIC 900 de 990</td><td>Comunicación y lectura en inglés.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+        <div class="xp panel">
+          <div><h3>Programa Empresarial Supérate</h3><div class="org">Fundación Alberto Motta, Centro Supérate La Chorrera</div></div>
+          <span class="date">2024 – hoy</span>
+          <ul><li>Formación en tecnología, inglés y valores.</li><li>Propuesta tecnológica para un hackathon estudiantil y proyecto presentado en ExpoLogros.</li></ul>
+        </div>
+        <div class="xp panel">
+          <div><h3>Certificaciones y pruebas</h3><div class="org">Excel y TOEIC</div></div>
+          <ul><li>Dos certificaciones de Excel, de nivel avanzado y experto.</li><li>TOEIC: 900 de 990.</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <span class="deco orb" style="width:320px;height:320px;background:#19B4FF;right:-120px;top:20px;opacity:.4"></span>
+    <div class="wrap">
+      <h2 class="sec-title">Proyectos</h2><div class="line"></div>
+      <!-- Imágenes en la carpeta img: proyecto-1.jpg, proyecto-2.jpg, proyecto-3.jpg. Antes de subir capturas, oculta IP, números de habitación y nombres de equipos. -->
+      <div class="grid">
+        <article class="card">
+          <div class="shot"><span>img/proyecto-1.jpg</span><img src="img/proyecto-1.jpg" alt="Hoja de Excel con las cerraduras agrupadas por hub y su nivel de señal" onerror="this.remove()"><span class="ov" aria-hidden="true">↗</span></div>
+          <h3>Control de señal de cerraduras en Excel</h3>
+          <p>Armé una hoja para revisar 58 cerraduras electrónicas conectadas a 12 hubs. Por cada hub anotaba sus puertas y la señal de cada una, de 1 a 5, para confirmar que estuvieran bien conectadas y con señal suficiente.</p>
+          <p class="tags">Excel, cerraduras electrónicas</p>
+        </article>
+        <article class="card">
+          <div class="shot"><span>img/proyecto-2.jpg</span><img src="img/proyecto-2.jpg" alt="Terminal portátil TESA de ASSA ABLOY para cerraduras" onerror="this.remove()"><span class="ov" aria-hidden="true">↗</span></div>
+          <h3>Sistema de cerraduras electrónicas</h3>
+          <p>Trabajé con el sistema de puertas y con el terminal portátil TESA de ASSA ABLOY, parte del equipo con el que se atienden las cerraduras.</p>
+          <p class="tags">TESA, ASSA ABLOY</p>
+        </article>
+        <article class="card">
+          <div class="shot"><span>img/proyecto-3.jpg</span><img src="img/proyecto-3.jpg" alt="Estación de punto de venta" onerror="this.remove()"><span class="ov" aria-hidden="true">↗</span></div>
+          <h3>Puntos de venta (POS) y telefonía</h3>
+          <p>Trabajé con los sistemas POS de las estaciones de restaurante, bar y café, desde donde los empleados toman las órdenes, y con el sistema de teléfonos.</p>
+          <p class="tags">POS, telefonía</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="actividades">
+    <span class="deco ringo" style="width:180px;height:180px;left:-60px;top:60px"></span>
+    <span class="deco dots" style="width:130px;height:130px;right:4%;top:40px"></span>
+    <div class="wrap">
+      <h2 class="sec-title">Actividades</h2><div class="line"></div>
+      <ul class="acts">
+        <li><b>Hackathon estudiantil</b><span>Desarrollé una propuesta tecnológica en el programa Supérate, Centro Supérate La Chorrera.</span></li>
+        <li><b>ExpoLogros</b><span>Presenté un proyecto de tecnología y fui orador y coordinador del proyecto BIOWILD.</span></li>
+        <li><b>Voluntariado</b><span>Ayudé a construir una vivienda con TECHO y colaboré en una iniciativa de reciclaje con la Fundación HogarEco.</span></li>
+        <li><b>Representación estudiantil</b><span>Apoyé a mis compañeros como representante estudiantil.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <span class="deco orb" style="width:360px;height:360px;background:#7A3CFF;left:-120px;bottom:-100px"></span>
+    <span class="deco ringo float" style="width:130px;height:130px;right:6%;top:50px"></span>
+    <div class="wrap">
+      <h2 class="sec-title">Contacto</h2><div class="line"></div>
+      <div class="panel">
+        <p>Si quieres hablar de una oportunidad, un proyecto o una beca, escríbeme.</p>
+        <ul class="links">
+          <li><a href="mailto:carlos.sanchez.xs09@gmail.com"><b>Correo</b><span>carlos.sanchez.xs09@gmail.com</span></a></li>
+          <li><a href="https://www.linkedin.com/in/carlos-xavier-s%C3%A1nchez-sousa-52294840a"><b>LinkedIn</b><span>Carlos Xavier Sánchez Sousa</span></a></li>
+          <li><a href="https://github.com/Carlos-Sanchez1909"><b>GitHub</b><span>Carlos-Sanchez1909</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Carlos Sánchez</footer>
+
+<a class="up" href="#inicio" aria-label="Volver arriba"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15l7-7 7 7"/></svg></a>
+<div class="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var tabs=document.querySelectorAll('[role="tab"]');
+  var cur=0, busy=false;
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){
+      if(i===cur||busy) return;
+      var dir=i>cur?1:-1;
+      var from=document.getElementById(tabs[cur].getAttribute('aria-controls'));
+      var to=document.getElementById(t.getAttribute('aria-controls'));
+      tabs.forEach(function(o,j){o.setAttribute('aria-selected',j===i);});
+      cur=i;
+      if(reduce){from.hidden=true;to.hidden=false;return;}
+      busy=true;
+      from.style.setProperty('--dx',(-dir*70)+'px');
+      from.style.animation='slideOut .25s ease forwards';
+      setTimeout(function(){
+        from.hidden=true; from.style.animation='';
+        to.style.setProperty('--dx',(dir*70)+'px');
+        to.hidden=false;
+        to.style.animation='slideIn .45s ease both';
+        busy=false;
+      },250);
+    });
+  });
+  if(!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var ring=document.querySelector('.cursor-ring'), dot=document.querySelector('.cursor-dot');
+  var x=0,y=0,rx=0,ry=0;
+  document.addEventListener('mousemove',function(e){
+    x=e.clientX; y=e.clientY;
+    dot.style.transform='translate('+x+'px,'+y+'px)';
+    document.body.classList.add('cursor-on');
+  });
+  document.addEventListener('mouseleave',function(){document.body.classList.remove('cursor-on');});
+  document.addEventListener('mouseover',function(e){
+    ring.classList.toggle('big',!!e.target.closest('a,button,.card'));
+  });
+  (function loop(){
+    var k=reduce?1:0.18;
+    rx+=(x-rx)*k; ry+=(y-ry)*k;
+    ring.style.transform='translate('+rx+'px,'+ry+'px)';
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>
